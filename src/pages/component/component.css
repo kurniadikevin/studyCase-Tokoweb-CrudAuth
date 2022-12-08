@@ -22,3 +22,30 @@
     background-color: rgb(35,35,35);
     padding: 10px 20px;
 }
+
+.main{
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1.5fr 1fr 1.5fr 2fr 2fr;
+    gap: 30px;
+    background-color: rgb(35,35,35);
+}
+
+.main>input{
+    height: 30px;
+}
+.main>button{
+    width: 300px;
+    margin: 0 auto;
+    color: white;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+}
+
+#link-detail{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 8px 8px;
+}

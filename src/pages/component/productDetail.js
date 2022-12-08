@@ -40,11 +40,11 @@ const ProductDetail =(props)=>{
                 <div>{productData.price}</div>
                 <div>{productData.created_at}</div>
                 <div>{productData.updated_at}</div>
-                <Link to={`/update/product/${productData.id}}`}>
+                <Link to={`/update/product/${productData.id}}`} id='link-detail'>
                 <div>Update</div>
                 </Link>
                 
-                <Link to={`/delete/product/${productData.id}}`}>
+                <Link to={`/delete/product/${productData.id}}`} id='link-detail'>
                 <div>Delete</div>
                 </Link>
             </div>
