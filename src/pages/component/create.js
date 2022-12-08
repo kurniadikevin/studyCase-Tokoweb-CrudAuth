@@ -1,29 +1,34 @@
 import { useState } from "react";
 import Dashboard from "./dashboard";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+
 
 const Create =(props)=>{
 
     const [name,setName]= useState('');
     const [price,setPrice]= useState('');
 
+    let history = useHistory();
+
     const createProduct=()=>{
-        axios({
-            method: "POST",
-            data: {
-              name: name,
-              price: price,
-             
-            },
-            withCredentials: true,
-            url: "https://test.employee.tokoweb.xyz/api/product/store",
-          }).then((res) => {
-            alert('product created!')
+      const bearer ='Bearer ' + (props.currentUser).token ;
+      const article = { 
+        name : name,
+        price : price
+       };
+      const headers = { 
+          'Authorization': bearer,
+         /*  'My-Custom-Header': 'foobar' */
+      };
+      axios.post('https://test.employee.tokoweb.xyz/api/product/store', article, { headers })
+          .then(response => {
+            alert(response.data.message);
+            history.push("/");
           })
           .catch((err)=>{
-            console.log(err);
-          })
-          ;
+            console.log(err)
+          });
     }
 
     return(

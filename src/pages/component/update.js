@@ -1,52 +1,52 @@
 import { useEffect, useState } from "react";
 import Dashboard from "./dashboard";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 
 const Update =(props)=>{
     const [name,setName]= useState('');
     const [price,setPrice]= useState('');
     const [productId,setProductId]= useState('');
-    const [productData,setProductData]= useState(
-      {
-        "id": 4,
-        "name": "SampleeData",
-        "price": "50000",
-        "created_at": "2022-10-11T04:47:08.000000Z",
-        "updated_at": "2022-10-11T04:47:08.000000Z"
-      }
-    );
+    const [productData,setProductData]= useState({});
 
+    let history = useHistory();
     const {product_id} = useParams(); 
-    //console.log(product_id);
 
     //fetch product before update
-    const fetchProductDetail =async ()=>{
-      const url=`https://test.employee.tokoweb.xyz/api/product/show?product_id=${product_id}`;
-      const response = await fetch(url);
-      var data = await response.json();
-      setProductData(data);
-      } 
+    const fetchProductDetail =  ()=>{
+      const bearer ='Bearer ' + (props.currentUser).token ;
+      const headers = {
+        'Authorization': bearer,
+      };
+      axios.get(`https://test.employee.tokoweb.xyz/api/product/show?product_id=${product_id}`, { headers })
+        .then(response => {
+         // console.log(response.data.data);
+          setProductData(response.data.data);
+        });
+      }
 
-    const updateProduct=()=>{
-        axios({
-            method: "POST",
-            data: {
-              name: name,
-              price: price,
-             product_id : productId
-            },
-            withCredentials: true,
-            url: "https://test.employee.tokoweb.xyz/api/product/update",
-          }).then((res) => {
-            alert('product created!')
-          })
-          .catch((err)=>{
-            console.log(err);
-          })
-          ;
-    }
+      const updateProduct=()=>{
+        const bearer ='Bearer ' + (props.currentUser).token ;
+        const article = { 
+          name : name,
+          price : price,
+          product_id : product_id
+         };
+        const headers = { 
+            'Authorization': bearer,
+           /*  'My-Custom-Header': 'foobar' */
+        };
+        axios.post('https://test.employee.tokoweb.xyz/api/product/update', article, { headers })
+            .then(response => {
+              alert(response.data.message);
+              history.push("/");
+              
+            })
+            .catch((err)=>{
+              console.log(err)
+            });
+      }
 
     useEffect(()=>{
       fetchProductDetail()

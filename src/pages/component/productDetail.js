@@ -1,32 +1,35 @@
 import { useState ,useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
 import Dashboard from "./dashboard";
+import axios from "axios";
 
 
 const ProductDetail =(props)=>{
 
     const[productData,setProductData]= useState( {
-        "id": 2,
-        "name": "SampleeData",
-        "price": "50000",
-        "created_at": "2022-10-11T04:47:08.000000Z",
-        "updated_at": "2022-10-11T04:47:08.000000Z"
+       name : 'loading...'
       });
 
      const {product_id} = useParams(); 
 
-    const fetchDataRead = async ()=>{
-        const url=`https://test.employee.tokoweb.xyz/api/product/show?product_id=${product_id}`;
-        const response = await fetch(url);
-        var data = await response.json();
-        setProductData(data);
-        } 
+     const fetchDataRead =  ()=>{
+        const bearer ='Bearer ' + (props.currentUser).token ;
+        const headers = {
+          'Authorization': bearer,
+        };
+        axios.get(`https://test.employee.tokoweb.xyz/api/product/show?product_id=${product_id}`, { headers })
+          .then(response => {
+           // console.log(response.data.data);
+            setProductData(response.data.data);
+          });
+        }
+        
     
         useEffect(()=>{
           fetchDataRead();
         },[])
     
-        console.log('product id ::: '+ product_id) 
+      //  console.log('product id ::: '+ product_id) 
 
     return(
         <div className="App">
@@ -35,11 +38,11 @@ const ProductDetail =(props)=>{
            
             <div className="home-data">
                 <div>Product detail </div>
-                <div>{productData.id}</div>
-                <div>{productData.name}</div>
-                <div>{productData.price}</div>
-                <div>{productData.created_at}</div>
-                <div>{productData.updated_at}</div>
+                <div>Product id :{productData.id}</div>
+                <div>Name : {productData.name}</div>
+                <div>Price :{productData.price}</div>
+                <div>Created at :{productData.created_at}</div>
+                <div>Updated at : {productData.updated_at}</div>
                 <Link to={`/update/product/${productData.id}}`} id='link-detail'>
                 <div>Update</div>
                 </Link>

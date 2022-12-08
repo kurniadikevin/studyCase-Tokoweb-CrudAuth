@@ -3,34 +3,32 @@ import './style.css';
 import { Link } from 'react-router-dom';
 import Dashboard from '../component/dashboard';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 export function HomePage(props) {
 
   const [data,setData]= useState([
     {
-      "id": 2,
-      "name": "Kursi",
-      "price": "50000",
-      "created_at": "2022-10-11T04:47:08.000000Z",
-      "updated_at": "2022-10-11T04:47:08.000000Z"
+     
+      "name": "not logged in",
+     
     },
-    {
-      "id": 1,
-      "name": "Meja",
-      "price": "100000",
-      "created_at": "2022-10-11T04:47:08.000000Z",
-      "updated_at": "2022-10-11T04:47:08.000000Z"
-    }
   ]);
 
-  const fetchDataRead = async ()=>{
-    const url=`https://test.employee.tokoweb.xyz/api/product`;
-    const response = await fetch(url);
-    var data = await response.json();
-    console.log(data)
-    setData(data);
+
+  const fetchDataRead =  ()=>{
+    const bearer ='Bearer ' + (props.currentUser).token ;
+    const headers = {
+      'Authorization': bearer,
+    };
+    axios.get('https://test.employee.tokoweb.xyz/api/product', { headers })
+      .then(response => {
+        //console.log(response.data.data);
+        setData(response.data.data)
+      });
     }
+    
 
     useEffect(()=>{
       fetchDataRead();
