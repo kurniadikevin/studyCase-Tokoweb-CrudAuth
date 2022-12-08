@@ -5,7 +5,7 @@ import Dashboard from '../component/dashboard';
 import { useEffect, useState } from 'react';
 
 
-export function HomePage() {
+export function HomePage(props) {
 
   const [data,setData]= useState([
     {
@@ -28,6 +28,7 @@ export function HomePage() {
     const url=`https://test.employee.tokoweb.xyz/api/product`;
     const response = await fetch(url);
     var data = await response.json();
+    console.log(data)
     setData(data);
     }
 
@@ -37,17 +38,37 @@ export function HomePage() {
 
   return (
     <div className="App">
-     <Dashboard/>
+     <Dashboard  currentUser={(props.currentUser).name} />
      {data.map((item)=>{
         return(
           <div className='home-data'>
-            <div>{item.id}</div>
-            <div>{item.name}</div>
-            <div>{item.price}</div>
-            <div>{item.created_at}</div>
-            <div>{item.updated_at}</div>
+           
             <div>
-              <Link to={`productDetail/${item.id}`}>
+            <div>Product name:</div>
+            <div> {item.name}</div>
+            </div>
+
+            <div>
+            <div>Price :</div>
+            <div>{item.price}</div>
+            </div>
+
+            <div>
+            <div>Product id :</div>
+            <div>{item.id}</div>
+            </div>
+
+            <div>
+            <div>Created at :</div>
+            <div>{item.created_at}</div>
+            </div>
+
+            <div>
+            <div>Updated at : </div>
+            <div>{item.updated_at}</div>
+            </div>
+            <div>
+              <Link to={`productDetail/${item.id}`} id='product-link'>
               <div>Product detail</div>
               </Link>
             </div>

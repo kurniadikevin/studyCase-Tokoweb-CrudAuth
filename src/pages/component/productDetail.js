@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Dashboard from "./dashboard";
 
 
-const ProductDetail =()=>{
+const ProductDetail =(props)=>{
 
     const[productData,setProductData]= useState( {
         "id": 2,
@@ -30,6 +30,8 @@ const ProductDetail =()=>{
 
     return(
         <div className="App">
+
+            <Dashboard  currentUser={(props.currentUser).name} />
            
             <div className="home-data">
                 <div>Product detail </div>

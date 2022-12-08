@@ -4,7 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 
-const Update =()=>{
+const Update =(props)=>{
     const [name,setName]= useState('');
     const [price,setPrice]= useState('');
     const [productId,setProductId]= useState('');
@@ -54,7 +54,7 @@ const Update =()=>{
 
     return(
         <div className="App">
-            <Dashboard/>
+            <Dashboard  currentUser={(props.currentUser).name}/>
             <div className='page'>
         <div className='main'>
 

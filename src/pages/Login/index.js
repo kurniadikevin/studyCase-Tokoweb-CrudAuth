@@ -3,13 +3,17 @@ import './style.css';
 import { Link } from 'react-router-dom';
 import Dashboard from '../component/dashboard';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
-export function Login() {
+export function Login(props) {
 
   const [email,setEmail]= useState('');
   const [password,setPassword]= useState('');
+  const [currentUser,setCurrentUser]= useState({});
+
+   // pull data to app
+   props.func(currentUser);
 
   const loginUser =()=>{
     axios({
@@ -26,17 +30,22 @@ export function Login() {
       if(res.data === 'No User Exists'){
         alert('No User Exist')
       } else{
-        
+        alert('login success');
+        console.log(res.data.data);
+        setCurrentUser(res.data.data);
         //history.push("/")
       }    
     });
   }
+ 
+  useEffect(()=>{
 
+  },[currentUser])
 
 
   return (
     <div className="App">
-      <Dashboard/>
+      <Dashboard currentUser={currentUser.name}/>
       <div className='page'>
         <div className='main'>
           <label>Email</label>

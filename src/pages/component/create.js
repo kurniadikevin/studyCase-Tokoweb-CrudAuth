@@ -2,7 +2,7 @@ import { useState } from "react";
 import Dashboard from "./dashboard";
 import axios from "axios";
 
-const Create =()=>{
+const Create =(props)=>{
 
     const [name,setName]= useState('');
     const [price,setPrice]= useState('');
@@ -28,7 +28,7 @@ const Create =()=>{
 
     return(
         <div className="App">
-            <Dashboard/>
+            <Dashboard  currentUser={(props.currentUser).name} />
             <div className='page'>
         <div className='main'>
           <label>Name</label>
