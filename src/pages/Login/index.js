@@ -1,9 +1,9 @@
-import logo from '../../logo.svg';
+
 import './style.css';
-import { Link } from 'react-router-dom';
 import Dashboard from '../component/dashboard';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useHistory } from "react-router-dom";
 
 
 export function Login(props) {
@@ -11,6 +11,8 @@ export function Login(props) {
   const [email,setEmail]= useState('');
   const [password,setPassword]= useState('');
   const [currentUser,setCurrentUser]= useState({});
+
+  let history = useHistory();
 
    // pull data to app
    props.func(currentUser);
@@ -33,7 +35,7 @@ export function Login(props) {
         alert('login success');
         console.log(res.data.data);
         setCurrentUser(res.data.data);
-        //history.push("/")
+        history.push("/");
       }    
     });
   }

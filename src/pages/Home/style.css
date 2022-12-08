@@ -6,6 +6,12 @@
     gap: 50px;
 }
 
+.home-cont{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
 .home-data{
     background-color: rgb(45,45,45);
     display: flex;

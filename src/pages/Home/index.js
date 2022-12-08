@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Dashboard from '../component/dashboard';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { formatDate } from '../component/converter';
 
 
 export function HomePage(props) {
@@ -37,6 +38,7 @@ export function HomePage(props) {
   return (
     <div className="App">
      <Dashboard  currentUser={(props.currentUser).name} />
+     <div className='home-cont'>
      {data.map((item)=>{
         return(
           <div className='home-data'>
@@ -58,12 +60,12 @@ export function HomePage(props) {
 
             <div>
             <div>Created at :</div>
-            <div>{item.created_at}</div>
+            <div>{item.created_at ? formatDate(item.created_at) : item.created_at}</div>
             </div>
 
             <div>
             <div>Updated at : </div>
-            <div>{item.updated_at}</div>
+            <div>{item.updated_at ? formatDate(item.updated_at) : item.updated_at}</div>
             </div>
             <div>
               <Link to={`productDetail/${item.id}`} id='product-link'>
@@ -73,6 +75,7 @@ export function HomePage(props) {
           </div>
         )
      })}
+     </div>
     </div>
   );
 }
