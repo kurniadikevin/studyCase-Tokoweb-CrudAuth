@@ -32,10 +32,13 @@ export function Login(props) {
       if(res.data === 'No User Exists'){
         alert('No User Exist')
       } else{
-        alert('login success');
         console.log(res.data.data);
         setCurrentUser(res.data.data);
         history.push("/");
+
+        const alertBox = document.querySelector('.alert-box');
+        alertBox.style.display='inline';
+        alertBox.textContent='Login success';
       }    
     });
   }

@@ -34,8 +34,11 @@ const Delete =(props)=>{
         axios.delete(`https://test.employee.tokoweb.xyz/api/product/${product_id}`, { headers })
             .then((response) =>{
                  console.log(response);
-                 alert('Product deleted!');
                  history.push("/");
+                  //alert box
+              const alertBox = document.querySelector('.alert-box');
+              alertBox.style.display='inline';
+              alertBox.textContent='Product deleted!';  
             });
       }
      
@@ -48,7 +51,7 @@ console.log(product_id);
         <div className="App">
             <Dashboard  currentUser={(props.currentUser).name} />
            
-            <div className="home-data">
+            <div className="home-data" id="data-cont">
                 <div>Product detail </div>
                 <div>Product id :{productData.id}</div>
                 <div>Name : {productData.name}</div>
@@ -58,6 +61,7 @@ console.log(product_id);
                 <div className="delete-cont">
                 <div>Are you sure you want to delete this product?</div>
                 <button onClick={deleteProduct}>Delete</button>
+                <br/>
                 </div>
             </div>
           

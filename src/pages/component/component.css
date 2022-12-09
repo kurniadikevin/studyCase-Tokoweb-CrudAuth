@@ -1,7 +1,7 @@
 .dashboard{
     display: flex;
     margin: 0 auto;
-    gap: 30px;
+    gap: 50px;
     flex-direction: column;
 }
 
@@ -23,12 +23,20 @@
     padding: 10px 20px;
 }
 
+#currentUser{
+    display: flex;
+    justify-content: center;
+   align-items: center;
+   font-size: 13pt;
+}
+
 .main{
     padding: 20px;
     display: grid;
     grid-template-rows: 1fr 1.5fr 1fr 1.5fr 2fr 2fr;
     gap: 30px;
     background-color: rgb(35,35,35);
+    
 }
 
 .main>input{
@@ -63,4 +71,24 @@
     border-radius: 15px;
     padding: 5px 10px;
     cursor: pointer;
+}
+
+#data-cont{
+    margin: 0 auto;
+}
+
+
+.alert-box{
+    background-color: cornflowerblue;
+    padding: 25px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 14pt;
+    position: absolute;
+    right: 50px;
+    top: 40px;
+    opacity: 0.8;
+   display: none;
 }

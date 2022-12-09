@@ -23,8 +23,11 @@ const Create =(props)=>{
       };
       axios.post('https://test.employee.tokoweb.xyz/api/product/store', article, { headers })
           .then(response => {
-            alert(response.data.message);
             history.push("/");
+
+            const alertBox = document.querySelector('.alert-box');
+            alertBox.style.display='inline';
+            alertBox.textContent=response.data.message;
           })
           .catch((err)=>{
             console.log(err)

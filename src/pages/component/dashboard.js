@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Dashboard =(props)=>{
 
+    const removeAlert =()=>{
+        const alertBox= document.querySelector('.alert-box');
+        alertBox.style.display='none'
+    }
+
     return(
         <div className="dashboard">
             <div className='app-title'>CRUD and Authetication</div>
@@ -16,7 +21,10 @@ const Dashboard =(props)=>{
                 <Link to='/login' id='dash-link'>
                 <div>Log in</div>
                 </Link>
-                <div>{props.currentUser ? props.currentUser : 'Not logged in'}</div>
+                <div id='currentUser'>{props.currentUser ? props.currentUser : 'Not logged in'}</div>
+            </div>
+            <div className='alert-box' onClick={removeAlert}>
+            message
             </div>
         </div>
     )

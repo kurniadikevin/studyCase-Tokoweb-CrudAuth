@@ -36,7 +36,7 @@ const ProductDetail =(props)=>{
 
             <Dashboard  currentUser={(props.currentUser).name} />
            
-            <div className="home-data">
+            <div className="home-data" id="data-cont">
                 <div>Product detail </div>
                 <div>Product id :{productData.id}</div>
                 <div>Name : {productData.name}</div>
