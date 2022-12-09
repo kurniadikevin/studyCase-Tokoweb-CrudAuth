@@ -11,7 +11,7 @@ export function HomePage(props) {
   const [data,setData]= useState([
     {
      
-      "name": "not logged in",
+      "name": "loading...",
      
     },
   ]);

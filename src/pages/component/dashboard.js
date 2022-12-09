@@ -11,7 +11,7 @@ const Dashboard =(props)=>{
 
     return(
         <div className="dashboard">
-            <div className='app-title'>CRUD and Authetication</div>
+            <div className='app-title'>CRUD and Authentication</div>
             <div className='dash-panel'>
                 <Link to='/' id='dash-link'>
                     <div>Home</div>

@@ -9,6 +9,7 @@
     font-size: 20pt;
     display: flex;
     justify-content: center;
+    font-weight: 600;
 }
 .dash-panel{
     display: flex;
@@ -27,8 +28,9 @@
     display: flex;
     justify-content: center;
    align-items: center;
-   font-size: 13pt;
+   font-size: 14pt;
    padding-left: 10px;
+   font-weight: 700;
 }
 .log-out{
     cursor: pointer;
@@ -96,6 +98,10 @@
    display: none;
 }
 
+#product-detail-title{
+    font-size: 14pt;
+    font-weight: 700;
+}
 
 /* DATA TABLE */
 .data-table{
@@ -106,6 +112,7 @@
     border:1px solid white;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 10px;
   }
 
   th{

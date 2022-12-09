@@ -40,15 +40,15 @@ const DataTable = (props)=>{
             {data.map((item)=>{
                 return(
                     <tr>
-                        <th id="table-name">
+                        <td id="table-name">
                          <Link to={`productDetail/${item.id}`} id='table-detail'>
                         {item.name}
                         </Link>
-                        </th>
-                        <th>{item.price}</th>
-                        <th>{item.id}</th>
-                        <th>{item.created_at ? formatDate(item.created_at) : item.created_at}</th>
-                        <th>{item.updated_at ? formatDate(item.updated_at) : item.updated_at}</th>
+                        </td>
+                        <td>{item.price}</td>
+                        <td>{item.id}</td>
+                        <td>{item.created_at ? formatDate(item.created_at) : item.created_at}</td>
+                        <td>{item.updated_at ? formatDate(item.updated_at) : item.updated_at}</td>
                     </tr>
                 )
             })}
