@@ -19,8 +19,7 @@ const Create =(props)=>{
        };
       const headers = { 
           'Authorization': bearer,
-         /*  'My-Custom-Header': 'foobar' */
-      };
+       };
       axios.post('https://test.employee.tokoweb.xyz/api/product/store', article, { headers })
           .then(response => {
             history.push("/");

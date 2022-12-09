@@ -2,6 +2,7 @@ import { useState ,useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
 import Dashboard from "./dashboard";
 import axios from "axios";
+import { formatDate } from '../component/converter';
 
 
 const ProductDetail =(props)=>{
@@ -41,8 +42,8 @@ const ProductDetail =(props)=>{
                 <div>Product id :{productData.id}</div>
                 <div>Name : {productData.name}</div>
                 <div>Price :{productData.price}</div>
-                <div>Created at :{productData.created_at}</div>
-                <div>Updated at : {productData.updated_at}</div>
+                <div>Created at :   {productData.created_at ? formatDate(productData.created_at) : productData.created_at}</div>
+                <div>Updated at :   {productData.updated_at ? formatDate(productData.updated_at) : productData.updated_at}</div>
                 <Link to={`/update/product/${productData.id}}`} id='link-detail'>
                 <div>Update</div>
                 </Link>

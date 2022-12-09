@@ -2,7 +2,7 @@ import { useHistory, useParams} from "react-router-dom";
 import Dashboard from "./dashboard";
 import axios from "axios";
 import { useState,useEffect } from "react";
-
+import { formatDate } from '../component/converter';
 
 
 const Delete =(props)=>{
@@ -56,8 +56,8 @@ console.log(product_id);
                 <div>Product id :{productData.id}</div>
                 <div>Name : {productData.name}</div>
                 <div>Price :{productData.price}</div>
-                <div>Created at :{productData.created_at}</div>
-                <div>Updated at : {productData.updated_at}</div>
+                <div>Created at :    {productData.created_at ? formatDate(productData.created_at) : productData.created_at}</div>
+                <div>Updated at :     {productData.updated_at ? formatDate(productData.updated_at) : productData.updated_at}</div>
                 <div className="delete-cont">
                 <div>Are you sure you want to delete this product?</div>
                 <button onClick={deleteProduct}>Delete</button>

@@ -12,12 +12,12 @@
 }
 .dash-panel{
     display: flex;
-    gap: 30px;
+    gap: 10px;
 }
 
 #dash-link{
     text-decoration: none;
-    font-size: 16pt;
+    font-size: 14pt;
     color:white;
     background-color: rgb(35,35,35);
     padding: 10px 20px;
@@ -28,8 +28,11 @@
     justify-content: center;
    align-items: center;
    font-size: 13pt;
+   padding-left: 10px;
 }
-
+.log-out{
+    cursor: pointer;
+}
 .main{
     padding: 20px;
     display: grid;
@@ -91,4 +94,35 @@
     top: 40px;
     opacity: 0.8;
    display: none;
+}
+
+
+/* DATA TABLE */
+.data-table{
+     border: 1px solid white;
+     background-color: rgb(35,35,35);
+}
+ th, td {
+    border:1px solid white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  th{
+    font-size: 13pt;
+    font-weight: 700;
+    padding-bottom: 20px;
+  }
+
+#table-detail{
+    text-decoration: underline;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 12pt;
+
+}
+#table-name{
+   border: none;
+   border-bottom: 1px solid white;
 }
