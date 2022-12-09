@@ -35,7 +35,6 @@ const Update =(props)=>{
          };
         const headers = { 
             'Authorization': bearer,
-           /*  'My-Custom-Header': 'foobar' */
         };
         axios.post('https://test.employee.tokoweb.xyz/api/product/update', article, { headers })
             .then(response => {

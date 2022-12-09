@@ -42,7 +42,7 @@ const Delete =(props)=>{
             });
       }
      
-         useEffect(()=>{
+      useEffect(()=>{
            fetchDataRead();
          },[])
 

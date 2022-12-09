@@ -20,18 +20,15 @@ const ProductDetail =(props)=>{
         };
         axios.get(`https://test.employee.tokoweb.xyz/api/product/show?product_id=${product_id}`, { headers })
           .then(response => {
-           // console.log(response.data.data);
             setProductData(response.data.data);
           });
         }
         
     
-        useEffect(()=>{
+    useEffect(()=>{
           fetchDataRead();
         },[])
     
-      //  console.log('product id ::: '+ product_id) 
-
     return(
         <div className="App">
 

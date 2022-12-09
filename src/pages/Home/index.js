@@ -24,7 +24,6 @@ export function HomePage(props) {
     };
     axios.get('https://test.employee.tokoweb.xyz/api/product', { headers })
       .then(response => {
-        //console.log(response.data.data);
         setData(response.data.data)
       });
     }

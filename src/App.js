@@ -25,8 +25,7 @@ const pull_data = (data) => {
         </Route>
         <Route path="/data-table" exact >
           <DataTable currentUser={currentUser}/>
-        </Route>
-        
+        </Route>   
         <Route path="/productDetail/:product_id" >
           <ProductDetail  currentUser={currentUser}/>  
         </Route>

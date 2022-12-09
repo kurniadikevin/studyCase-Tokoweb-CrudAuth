@@ -25,14 +25,12 @@ export function Login(props) {
         password: password,
        
       },
-     /*  withCredentials: true, */
       url: "https://test.employee.tokoweb.xyz/api/login",
     }).then((res) => {
      
       if(res.data === 'No User Exists'){
         alert('No User Exist')
       } else{
-        console.log(res.data.data);
         setCurrentUser(res.data.data);
         history.push("/");
 
